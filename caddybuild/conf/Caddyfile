@@ -1,0 +1,5 @@
+:2015
+
+root * /app/dist
+encode gzip
+file_server
