@@ -8,7 +8,7 @@ RUN apt update \
 FROM alpine as prod
 WORKDIR /app
 COPY --from=0 /app/caddy2 .
-COPY ./conf .
-COPY ./dist .
+COPY ./conf ./conf
+COPY ./dist ./dist
 RUN mv caddy2 /usr/bin  
 CMD ["caddy2","run","--config","./conf/Caddyfile","--adapter","caddyfile"]
