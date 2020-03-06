@@ -1,5 +1,8 @@
-:2015
+lxj230.xyz
+{
+    root /app/dist
+    tls /app/conf/lxj230.xyz.pem /app/conf/lxj230.xyz.key
+    encode zstd gzip
+    file_server
+}
 
-root * /app/dist
-encode gzip
-file_server

@@ -4,4 +4,5 @@ services:
         build:
             context: ./caddybuild
         ports:
-            - "80:2015"
+            - "80:80"
+            - "433:433"
