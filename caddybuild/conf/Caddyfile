@@ -1,7 +1,7 @@
 lxj230.xyz
 {
-    root /app/dist
-    tls /app/conf/lxj230.xyz.pem /app/conf/lxj230.xyz.key
+    root * /app/dist
+    tls /app/conf/lxj230.pem /app/conf/lxj230.key
     encode zstd gzip
     file_server
 }
