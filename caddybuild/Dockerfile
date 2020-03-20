@@ -2,7 +2,7 @@ FROM ubuntu as build
 WORKDIR /app
 RUN apt update \
     && apt install -y curl \
-    && curl -L -o caddy2 https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.15/caddy2_beta15_linux_amd64 \
+    && curl -L -o caddy2 https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.18/caddy2_beta18_linux_amd64 \
     && chmod +x caddy2
 
 FROM alpine as prod
