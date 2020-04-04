@@ -1,8 +1,8 @@
 FROM ubuntu as build
 WORKDIR /app
 RUN apt update \
-    && apt install -y httpie \
-    && http --download https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.1/caddy_2.0.0-rc.1_Linux_x86_64.tar.gz -o caddy2.tar.gz \
+    && apt install -y curl \
+    && curl -L -o caddy2.tar.gz https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.1/caddy_2.0.0-rc.1_Linux_x86_64.tar.gz \
     && tar xf caddy2.tar.gz
 
 FROM alpine as prod
