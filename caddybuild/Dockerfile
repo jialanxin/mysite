@@ -1,14 +1,14 @@
 FROM ubuntu as build
 WORKDIR /app
 RUN apt update \
-    && apt install -y curl \
-    && curl -L -o caddy2 https://github.com/caddyserver/caddy/releases/download/v2.0.0-beta.20/caddy2_beta20_linux_amd64 \
-    && chmod +x caddy2
+    && apt install -y httpie \
+    && http --download https://github.com/caddyserver/caddy/releases/download/v2.0.0-rc.1/caddy_2.0.0-rc.1_Linux_x86_64.tar.gz -o caddy2.tar.gz \
+    && tar xf caddy2.tar.gz
 
 FROM alpine as prod
 WORKDIR /app
-COPY --from=0 /app/caddy2 .
+COPY --from=0 /app/caddy .
 COPY ./conf ./conf
 COPY ./dist ./dist
-RUN mv caddy2 /usr/bin  
-CMD ["caddy2","run","--config","./conf/Caddyfile","--adapter","caddyfile"]
+RUN mv caddy /usr/bin  
+CMD ["caddy","run","--config","./conf/Caddyfile","--adapter","caddyfile"]
